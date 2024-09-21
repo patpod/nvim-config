@@ -47,8 +47,10 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- Display new splits on the right side
+-- Display new vertical splits on the right side
 vim.opt.splitright = true
+-- Display new horizontal splits on the bottom
+vim.opt.splitbelow = true
 
 -- Enable virtualedit for visual block mode
 vim.opt.virtualedit = "block"
