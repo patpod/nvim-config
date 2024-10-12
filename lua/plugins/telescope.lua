@@ -27,12 +27,15 @@ return {
 		pcall(require("telescope").load_extension, "ui-select")
 
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Search Files (Root Dir)" })
+		vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Find Files (Root Dir)" })
+		vim.keymap.set("n", "<leader>:", builtin.command_history, { desc = "Command History" })
 		vim.keymap.set("n", "<leader>,", function()
-			builtin.buffers {
-				sort_mru = true,
-				sort_lastused = true,
-			}
+			builtin.buffers({ sort_mru = true, sort_lastused = true })
 		end, { desc = "Switch Buffers" })
+		vim.keymap.set("n", "<leader>fb", function()
+			builtin.buffers({ sort_mru = true, sort_lastused = true })
+		end, { desc = "Buffers" })
+		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+		vim.keymap.set("n", "<leader>sG", builtin.live_grep, { desc = "Grep (cwd)" })
 	end,
 }
